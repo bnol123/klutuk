@@ -25,17 +25,15 @@ jobs:
       run: |
         git status
 
-    - name: Add changes to git
+    - name: Add and Commit Changes if Any
       run: |
-        git add data.php arry.php
-        git status
+        git add data.php arry.php  # Menambahkan file yang telah diubah
+        git commit -m "Update data.php and arry.php via bot.php" || echo "No changes to commit"
 
     - name: Pull Latest Changes
       run: |
         git pull origin main --rebase
 
-    - name: Commit and Push Changes
+    - name: Push Changes
       run: |
-        git commit -m "Update data.php and arry.php via bot.php" || echo "No changes to commit"
-        git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
         git push origin main
