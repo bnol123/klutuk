@@ -11,12 +11,27 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3  # Mengambil salinan repositori
 
+    - name: Configure Git user
+      run: |
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+
     - name: Setup PHP
       uses: shivammathur/setup-php@v2  # Menyiapkan PHP
       with:
         php-version: '8.1'  # Tentukan versi PHP yang diinginkan
 
+    - name: Commit changes (if any)
+      run: |
+        git add .
+        git commit -m "Automated commit" || echo "No changes to commit"
+
     - name: Run PHP Script
       env:
         keydice: ${{ secrets.KEYDICE }}  # Menyisipkan secret KEYDICE ke dalam environment
       run: php bot.php  # Menjalankan skrip PHP Anda
+
+    - name: Push changes
+      run: |
+        git remote set-url origin https://github-actions:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+        git push
