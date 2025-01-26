@@ -28,4 +28,4 @@ jobs:
         author_email: ${{ secrets.EMIL }}  # Menggunakan email dari GitHub Secrets dengan nama EMIL
         message: 'Update data.php from bot.php'
         push: true
-        github_token: ${{ secrets.GITHUB_TOKEN }}  # Menggunakan token otomatis GitHub
+        github_token: ${{ secrets.PAT_TOKEN }}  # Menggunakan PAT Token yang sudah disimpan di GitHub Secrets
