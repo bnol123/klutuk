@@ -1362,11 +1362,6 @@ $content .= "\$coinxx = $coinxx;\n";
 // Simpan ke file
 if (file_put_contents($file, $content)) {
     echo "Data berhasil disimpan ke $file";
-    
-    // Opsional: Perbarui repository GitHub
-    shell_exec('git add data.php');
-    shell_exec('git commit -m "Perbarui data.php secara otomatis"');
-    shell_exec('git push');
 } else {
     echo "Gagal menyimpan data.";
 }
