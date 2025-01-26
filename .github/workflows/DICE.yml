@@ -1,31 +1,37 @@
 name: DICE
 
 on:
-  workflow_dispatch: # Memungkinkan menjalankan workflow secara manual
+  workflow_dispatch:  # Memungkinkan menjalankan workflow secara manual
 
 jobs:
   run_bot:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Menjalankan di Ubuntu terbaru
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v3  # Mengambil salinan repositori
+
+    - name: Configure Git user
+      run: |
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
 
     - name: Setup PHP
-      uses: shivammathur/setup-php@v2
+      uses: shivammathur/setup-php@v2  # Menyiapkan PHP
       with:
-        php-version: '8.1' # Versi PHP yang digunakan
+        php-version: '8.1'  # Tentukan versi PHP yang diinginkan
+
+    - name: Commit changes (if any)
+      run: |
+        git add .
+        git commit -m "Automated commit" || echo "No changes to commit"
 
     - name: Run PHP Script
       env:
-        keydice: ${{ secrets.KEYDICE }}
-      run: php bot.php
+        keydice: ${{ secrets.KEYDICE }}  # Menyisipkan secret KEYDICE ke dalam environment
+      run: php bot.php  # Menjalankan skrip PHP Anda
 
-    - name: Commit and push changes
-      uses: EndBug/add-and-commit@v7
-      with:
-        author_name: 'GitHub Actions'
-        author_email: ${{ secrets.EMIL }}  # Menggunakan email dari GitHub Secrets dengan nama EMIL
-        message: 'Update data.php from bot.php'
-        push: true
-        github_token: ${{ secrets.PAT_TOKEN }}  # Menggunakan PAT Token yang sudah disimpan di GitHub Secrets
+    - name: Push changes
+      run: |
+        git remote set-url origin https://github-actions:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+        git push
