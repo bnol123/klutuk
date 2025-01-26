@@ -1,37 +1,19 @@
 name: DICE
 
 on:
-  workflow_dispatch:  # Memungkinkan menjalankan workflow secara manual
-
+  workflow_dispatch: 
 jobs:
   run_bot:
-    runs-on: ubuntu-latest  # Menjalankan di Ubuntu terbaru
-
+    runs-on: ubuntu-latest 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v3  # Mengambil salinan repositori
-
-    - name: Configure Git user
-      run: |
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git config --global user.name "github-actions[bot]"
-
+      uses: actions/checkout@v3 
     - name: Setup PHP
-      uses: shivammathur/setup-php@v2  # Menyiapkan PHP
+      uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.1'  # Tentukan versi PHP yang diinginkan
-
-    - name: Commit changes (if any)
-      run: |
-        git add .
-        git commit -m "Automated commit" || echo "No changes to commit"
-
+        php-version: '8.1' 
     - name: Run PHP Script
       env:
-        keydice: ${{ secrets.KEYDICE }}  # Menyisipkan secret KEYDICE ke dalam environment
+        keydice: ${{ secrets.KEYDICE }}
+        joko: ${{ secrets.JOKO }}
       run: php bot.php  # Menjalankan skrip PHP Anda
-
-    - name: Push changes
-      run: |
-        git remote set-url origin https://github-actions:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-        git push
