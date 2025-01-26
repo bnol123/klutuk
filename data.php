@@ -1,3 +1,4 @@
 <?php
-$tpxxx = 2;
-$coinxx = 2;
+// File data.php
+$variable = 'Ini konten baru';
+?>
