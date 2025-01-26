@@ -16,4 +16,4 @@ jobs:
         keydice: ${{ secrets.KEYDICE }}
         
       run: |
-        php star.php
+        php bot.php
