@@ -1,39 +1,5 @@
-name: DICE
-
-on:
-  workflow_dispatch:
-
-jobs:
-  run-bot:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
-
-    - name: Set Git Config
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-    - name: Run PHP Script
-      env:
-        keydice: ${{ secrets.KEYDICE }}
-      run: php bot.php
-
-    - name: Check for file changes
-      run: |
-        git status
-
-    - name: Add and Commit Changes if Any
-      run: |
-        git add data.php arry.php  # Menambahkan file yang telah diubah
-        git commit -m "Update data.php and arry.php via bot.php" || echo "No changes to commit"
-
-    - name: Pull Latest Changes
-      run: |
-        git pull origin main --rebase
-
-    - name: Push Changes
-      run: |
-        git push origin main
+- name: Commit and Push Changes
+  run: |
+    git add data.php arry.php
+    git commit -m "Update data.php and arry.php via bot.php" || echo "No changes to commit"
+    git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
