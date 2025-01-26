@@ -89,7 +89,8 @@ $merah2 🤣🤣=================================================🤣🤣\n";
 
 $useragent = "Mozilla/5.0 (Linux; Android 6.0.1; NEO-U9-H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 Safari/537.36 OPR/63.3.3216.58675";
 $authorization = getenv("keydice");
-///include ('cfg.php');
+include ('data.php');
+//include ('cfg.php');
 
 // Include file arry.php
 include ('arry.php');
@@ -633,9 +634,7 @@ echo$cyan1."PILIH COIN: ".$yellow;
 $coin= trim(fgets(STDIN));
 $coin = "xlm";
 
-$tpxxx = $$coin;
-
-$tpxxx = $$coin;
+include ('data.php');
 $makulang = 0;
 
 
@@ -648,7 +647,7 @@ $bagi = $bagi0;
 $bet0 = $tpxxx / $bagi0;
 $bet0fix = $tpxxx / $bagi0;
 $bet0fix0 = $tpxxx / $bagi0;
-$SL = $$coin / 20;
+$SL = $coinxx / 20;
 $SL = -$SL;
 $SL = number_format($SL,8);
 $peluang00 = 98;
@@ -723,7 +722,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
 awal:
 
-for ($time123 = 0; $time123 < 200; $time123++) {
+for ($time123 = 0; $time123 < 10; $time123++) {
 
 
 ulang:
@@ -1065,7 +1064,7 @@ $untungrugixxx = number_format($untungrugixxx,8);
 if ($untungrugixxxmx > $untungrugixxx){
 $untungrugixxxmx = $untungrugixxx;}
 $untungrugixxxmx = number_format($untungrugixxxmx,8);
-$untungrugi= $bal - $$coin ;
+$untungrugi= $bal - $coinxx ;
 $untungrugi = number_format($untungrugi,8);
 if ($untungrugi > 0) {
 $hslx = $hijau1."UNTUNG  : ".$untungrugi." 💎 ".$hijau1.$menangxxx." | ".$merah.$kalahxxx." | ".$abu.$totrugiamax." 🛑🛑🛑\n";}
@@ -1349,8 +1348,27 @@ $boster = 3000;
 
 
 
-
 echo$gray."🤣🤣=================================================🤣🤣\n";
+}
+
+// Nama file tempat menyimpan data
+$file = 'data.php';
+// Isi file PHP dengan kedua variabel
+$content = "<?php\n";
+$content .= "\$tpxxx = $tpxxx;\n";
+$content .= "\$coinxx = $coinxx;\n";
+
+
+// Simpan ke file
+if (file_put_contents($file, $content)) {
+    echo "Data berhasil disimpan ke $file";
+    
+    // Opsional: Perbarui repository GitHub
+    shell_exec('git add data.php');
+    shell_exec('git commit -m "Perbarui data.php secara otomatis"');
+    shell_exec('git push');
+} else {
+    echo "Gagal menyimpan data.";
 }
 
 
