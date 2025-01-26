@@ -1366,4 +1366,12 @@ if (file_put_contents($file, $content)) {
     echo "Gagal menyimpan data.";
 }
 
+// Commit dan Push Perubahan ke GitHub
+// Pastikan Git sudah diinisialisasi dan ada akses ke repositori
+exec('git add data.php');  // Menambahkan file yang diubah ke staging area
+exec('git commit -m "Update data.php from bot.php"');  // Commit perubahan dengan pesan
+exec('git push origin main');  // Push perubahan ke cabang 'main' (atau sesuaikan jika perlu)
+
+echo "Perubahan berhasil didorong ke GitHub.\n";
+
 
