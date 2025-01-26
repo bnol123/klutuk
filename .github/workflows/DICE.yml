@@ -14,13 +14,10 @@ jobs:
     - name: Run PHP Script
       env:
         keydice: ${{ secrets.KEYDICE }}
-        
-  - name: Run bot.php
-  run: php bot.php
-  
-- name: Commit and Push Changes
-  run: |
-    git add data.php
-    git commit -m "Update data.php via bot.php"
-    git push
-  
+      run: php bot.php
+
+    - name: Commit and Push Changes
+      run: |
+        git add data.php
+        git commit -m "Update data.php via bot.php"
+        git push
