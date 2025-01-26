@@ -630,7 +630,7 @@ echo $cyan . "Nonce: " . $kuning . $nonce . $reset . "\n";
 
 echo$cyan1."PILIH COIN: ".$yellow;
 $coin= trim(fgets(STDIN));
-$coin = "dgb";
+$coin = "xlm";
 
 $tpxxx = $$coin;
 
