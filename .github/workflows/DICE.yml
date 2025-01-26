@@ -13,7 +13,7 @@ jobs:
 
     - name: Run PHP Script
       env:
-        JOKO: ${{ secrets.KEYDICE }}
+        keydice: ${{ secrets.KEYDICE }}
         
       run: |
         php star.php
