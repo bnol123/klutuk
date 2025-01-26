@@ -90,7 +90,7 @@ $merah2 🤣🤣=================================================🤣🤣\n";
 $useragent = "Mozilla/5.0 (Linux; Android 6.0.1; NEO-U9-H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 Safari/537.36 OPR/63.3.3216.58675";
 $authorization = getenv("keydice");
 include ('data.php');
-//include ('cfg.php');
+include ('cfg.php');
 
 // Include file arry.php
 include ('arry.php');
@@ -722,7 +722,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
 awal:
 
-for ($time123 = 0; $time123 < 7000; $time123++) {
+for ($time123 = 0; $time123 < 50000; $time123++) {
 
 
 ulang:
@@ -1200,30 +1200,30 @@ $rollbackup = $roll;
 if ($btssatputaranTidakKeluarmax == $satputaranTidakKeluar) { }
 
 
-if ($menang == 1) {
+if ($menang <= 1) {
 $untungrugibet = $bet0fix * 1;}
-if ($kalah == 1) {
+if ($kalah <= 1) {
 $totrugi1 = $bet0fix;}
 
 if ($menang >= 1) {
 $makulang = $makulang + 1;
 $bet = $untungrugibet;
+$bet = $bet0fix;
 }
 if ($menang >= 2) {
 $makulang = $makulang + 1;
 $bet = $untungrugibet;
+$bet = $bet0fix;
 }
 
 
 if ($kalah >= 1) {
 $makulang = $makulang + 1;
 $bet = $totrugi1 / ($payout - 1);
-$bet = $bet0fix;
 }
 if ($kalah >= 2) {
 $makulang = $makulang + 1;
 $bet = $totrugi1 / ($payout - 1);
-$bet = $bet0fix;
 }
 
 
@@ -1259,7 +1259,7 @@ $rollbackup = $roll;
 if ($untungrugixxx > ($bet0fix / 2)){
 $boster++;
 $menang = 0;
-//$kalah = 0;
+$kalah = 0;
 $untungrugixxx = 0;
 $untungrugibet = $bet0fix;
 $totrugi1 = $bet0fix;
@@ -1351,6 +1351,8 @@ $boster = 3000;
 echo$gray."🤣🤣=================================================🤣🤣\n";
 }
 
+
+$coinxx = $tpxxx;
 // Nama file tempat menyimpan data
 $file = 'data.php';
 // Isi file PHP dengan kedua variabel
