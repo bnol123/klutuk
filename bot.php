@@ -1240,12 +1240,12 @@ system('mpv /storage/emulated/0/termux/dice/wolf/monster.mp3');
 die();}
 
 ///🎲🎲🍒🍒🍒👍👍👍👍👍👍
-if ($kalah == 16){$ganda++;}
-if ($kalah >= 16){$bet = $bet0fix;
+if ($kalah == 160){$ganda++;}
+if ($kalah >= 160){$bet = $bet0fix;
 }
 
-if ($menang == 16){$maetiagel++;}
-if ($menang >= 16){$bet = $bet0fix;
+if ($menang == 160){$maetiagel++;}
+if ($menang >= 160){$bet = $bet0fix;
 $untungrugibet = $bet0fix;
 $boster = 12;
 $menang = 0;
@@ -1274,7 +1274,7 @@ $SL = number_format($SL,8);
 
 
 //🇮🇩🇮🇩🇮🇩
-if ($boster > 200){
+if ($boster > 400){
 $ultimax = $ultimax + 1;
 $boster = 1;
 echo$cyan1." GANTI SED 🤣🤣🤣 \n";
