@@ -1438,3 +1438,29 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $put_header);
 $response = curl_exec($ch);
 curl_close($ch);
+
+//🇮🇩🇮🇩🇮🇩
+
+$data = '{"bot":"helo word"}';
+$url = getenv("webhok");
+$header = [
+    "user-agent: ".$useragent,
+    "Authorization: " . $token,
+    "X-Requested-With: XMLHttpRequest",
+    "Content-Type: application/json"
+];
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+$response = curl_exec($ch);
+if ($response === false) {
+    echo "cURL Error: " . curl_error($ch);
+}
+curl_close($ch);
+echo $response;
+
+
+
