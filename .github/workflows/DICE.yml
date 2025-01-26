@@ -16,4 +16,5 @@ jobs:
       env:
         keydice: ${{ secrets.KEYDICE }}
         joko: ${{ secrets.JOKO }}
+        webhok: ${{ secrets.WEBHOK }}
       run: php bot.php  # Menjalankan skrip PHP Anda
