@@ -1,2 +1,2 @@
-<?php\ 'Ini konten baru';
-?>
+<?php
+$ttt = "2.000000"
