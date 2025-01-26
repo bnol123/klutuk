@@ -1,2 +1,3 @@
 <?php
-$ttt = "2.000000"
+$tpxxx = 3;
+$coinxx = 2;
