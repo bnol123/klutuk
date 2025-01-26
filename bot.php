@@ -501,6 +501,7 @@ $$currency = $amount;
 
 echo$cyan1."GANTI SEDD: ".$yellow;
 $seddx= trim(fgets(STDIN));
+$seddx = "yes";
 
 if ($seddx == "yes"){
 $url = "https://wolfbet.com/api/v1/game/seed/refresh";
@@ -523,6 +524,7 @@ echo$cyan1."HASH  : ".$kuning2.$ceky."\n";
 echo $cyan1."Pilih mode:\n";
 echo "0 untuk AUTO, 1 untuk MANUAL, 2auto, atau tekan Enter untuk skip: ".$yellow;
 $mode = trim(fgets(STDIN));
+$mode = "2";
 
 if ($mode == "0") {
     echo $cyan1."GANTI BENIH AUTO: ".$yellow;
@@ -628,6 +630,8 @@ echo $cyan . "Nonce: " . $kuning . $nonce . $reset . "\n";
 
 echo$cyan1."PILIH COIN: ".$yellow;
 $coin= trim(fgets(STDIN));
+$coin = "xlm";
+
 $tpxxx = $$coin;
 
 $tpxxx = $$coin;
