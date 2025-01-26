@@ -1,4 +1,2 @@
-<?php
-// File data.php
-$variable = 'Ini konten baru';
+<?php\ 'Ini konten baru';
 ?>
