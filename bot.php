@@ -722,7 +722,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
 awal:
 
-for ($time123 = 0; $time123 < 1000000; $time123++) {
+for ($time123 = 0; $time123 < 2; $time123++) {
 
 
 ulang:
