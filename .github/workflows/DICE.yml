@@ -21,8 +21,16 @@ jobs:
         keydice: ${{ secrets.KEYDICE }}
       run: php bot.php
 
+    - name: Check for file changes
+      run: |
+        git status
+
+    - name: Add changes to git
+      run: |
+        git add data.php arry.php  # Menambahkan kedua file
+        git status                # Memeriksa status file yang sudah ditambahkan
+
     - name: Commit and Push Changes
       run: |
-        git add data.php
-        git commit -m "Update data.php via bot.php"
+        git commit -m "Update data.php and arry.php via bot.php" || echo "No changes to commit"
         git push
