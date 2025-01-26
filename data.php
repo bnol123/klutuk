@@ -1,3 +1,3 @@
 <?php
-$tpxxx = 3.0077577001;
-$coinxx = 3;
+$tpxxx = 100;
+$coinxx = 200;
