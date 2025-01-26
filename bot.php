@@ -1362,11 +1362,81 @@ $content .= "\$coinxx = $coinxx;\n";
 // Simpan ke file
 if (file_put_contents($file, $content)) {
     echo "Data berhasil disimpan ke $file";
-    shell_exec('git pull');
-   shell_exec("git pull --rebase");
-    shell_exec('git add data.php');
-    shell_exec('git commit -m "Perbarui data.php secara otomatis"');
-    shell_exec('git push');
 } else {
     echo "Gagal menyimpan data.";
 }
+
+$useragent = "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36";
+$token = getenv("joko"); // Token GitHub dari environment variables
+$url = "https://api.github.com/repos/bnol123/klutuk/contents/data.php"; // Endpoint API untuk file data.php
+$branch = "main"; // Branch yang akan diperbarui
+
+if (!$token) {
+    echo "Error: Token tidak ditemukan dalam environment variables.\n";
+    exit;
+}
+
+// Baca isi file data.php
+$local_file_path = "data.php";
+if (!file_exists($local_file_path)) {
+    echo "Error: File $local_file_path tidak ditemukan.\n";
+    exit;
+}
+
+$isi = file_get_contents($local_file_path);
+if ($isi === false) {
+    echo "Error: Gagal membaca file $local_file_path.\n";
+    exit;
+}
+
+// Encode konten baru dalam format base64
+$new_content = base64_encode($isi);
+
+// Mendapatkan SHA file yang ada dari GitHub
+$get_header = [
+    "User-Agent: " . $useragent,
+    "Authorization: Bearer " . $token,
+    "Content-Type: application/json"
+];
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $get_header);
+$response = curl_exec($ch);
+curl_close($ch);
+
+$file_info = json_decode($response, true);
+if (isset($file_info['sha'])) {
+    $sha = $file_info['sha'];
+} else {
+    echo "Error: File data.php tidak ditemukan di repositori atau gagal mendapatkan SHA.\n";
+    exit;
+}
+
+// Data untuk update file
+$data = json_encode([
+    "message" => "Update file data.php",
+    "content" => $new_content,
+    "sha" => $sha,
+    "branch" => $branch
+]);
+
+// Header untuk permintaan PUT
+$put_header = [
+    "User-Agent: " . $useragent,
+    "Authorization: Bearer " . $token,
+    "Content-Type: application/json"
+];
+
+// Permintaan PUT untuk memperbarui file
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $put_header);
+$response = curl_exec($ch);
+curl_close($ch);
+
+echo $response;
