@@ -89,9 +89,10 @@ $merah2 🤣🤣=================================================🤣🤣\n";
 
 $useragent = "Mozilla/5.0 (Linux; Android 6.0.1; NEO-U9-H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 Safari/537.36 OPR/63.3.3216.58675";
 $authorization = getenv("keydice");
+///include ('cfg.php');
 
 // Include file arry.php
-include 'arry.php';
+include ('arry.php');
 // Fungsi untuk menghasilkan huruf acak kecil
 function randomHuruf() {
     return chr(rand(97, 122)); // ASCII a-z
@@ -722,11 +723,12 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
 awal:
 
-for ($time123 = 0; $time123 < 2; $time123++) {
+for ($time123 = 0; $time123 < 200; $time123++) {
 
 
 ulang:
 ///🟧🟧🟧🟧🟧
+include ('arry.php');
 if ($peluang < 0.01){$peluang = 0.02;}
 if ($peluang > 98){$peluang = 98;}
 $roll = $rollbackup;
@@ -1350,64 +1352,5 @@ $boster = 3000;
 
 echo$gray."🤣🤣=================================================🤣🤣\n";
 }
-
-
-$roll00 = $roll;
-if ($roll00 == $puluhanJarangKeluar1){$roll = $puluhanSeringKeluar1;}
-if ($roll00 == $puluhanSeringKeluar1){$roll = $puluhanJarangKeluar1;}
-
-if ($hsl == 'win') {
-if ($predikdice == "belum"){$roll = $puluhanBelumKeluar1;}
-if ($predikdice == "langka"){$roll = $puluhanJarangKeluar1;}
-if ($predikdice == "pasaran"){$roll = $puluhanSeringKeluar1;}
-}
-
-//tidak di bet
-if ($puluhanSeringKeluar0 < 50){$puluhanSeringKeluar1 = $puluhanSeringKeluar1 + 5;}
-if ($puluhanSeringKeluar0 >= 50){$puluhanSeringKeluar1 = $puluhanSeringKeluar1 - -5;}
-
-//di bet
-if ($puluhanSeringKeluar0 < 50){$puluhanSeringKeluar1 = $puluhanSeringKeluar1 + 55;}
-if ($puluhanSeringKeluar0 >= 50){$puluhanSeringKeluar1 = $puluhanSeringKeluar1 - 45;}
-
-
-echo$cyan1."LANJUT: ".$yellow;
-$LANJUTx = trim(fgets(STDIN));
-
-
-///logika naik 50
-if ($rollcek == 0){$roll = $puluhanSeringKeluar1L;}
-if ($rollcek == 1){$roll = $puluhanSeringKeluar1;}
-
-if ($peluang < 48) {$hendel = 0;}
-
-if ($peluang > 58) {
-if ($hendel == 0){
-$hendel = 1;
-$roll00 = $roll;
-if ($roll00 == $puluhanSeringKeluar1){$roll = $puluhanSeringKeluar1L;}
-if ($roll00 == $puluhanSeringKeluar1L){$roll = $puluhanSeringKeluar1;}
-}}
-
-if ($time123 < 3) {$roll = $puluhanSeringKeluar1L;}
-if ($roll == $puluhanSeringKeluar1L){$rollcek = 0;}
-if ($roll == $puluhanSeringKeluar1){$rollcek = 1;}
-
-$rollbackup = $roll;
-///logika naik 50
-
-////if ($hsl == 'loss') {$bet = $totrugi1 / ($payout - 1.05);}
-
-echo$white."saran :
-Enter untuk lanjut
-no untuk berhanti
-PILIH : ".$yellow;
-$jeda = trim(fgets(STDIN));
- if ($jeda == "no"){die();}
-
-
-
-
-
 
 
