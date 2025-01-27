@@ -624,6 +624,7 @@ $gext = json_decode($gext, true);
 $serverseed = $gext['provablyFair']['server_seed_hashed'];
 $userseed = $gext['provablyFair']['user_seed'];
 $nonce = $gext['provablyFair']['last_nonce'];
+$cek = $nonce;
 
 // Tampilkan hasil dengan warna
 echo $cyan . "Server Seed: " . $kuning . $serverseed . $reset . "\n";
@@ -722,7 +723,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
 awal:
 
-for ($time123 = 0; $time123 < 77; $time123++) {
+for ($time123 = 0; $time123 < 17000; $time123++) {
 
 ulang:
 ///🟧🟧🟧🟧🟧
