@@ -721,7 +721,6 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
 curl_setopt($ch, CURLOPT_TIMEOUT, 20);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
-awal:
 
 for ($time123 = 0; $time123 < 17000; $time123++) {
 
