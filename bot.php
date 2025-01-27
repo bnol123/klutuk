@@ -722,7 +722,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
 awal:
 
-for ($time123 = 0; $time123 < 77000; $time123++) {
+for ($time123 = 0; $time123 < 77; $time123++) {
 
 ulang:
 ///🟧🟧🟧🟧🟧
@@ -1045,7 +1045,7 @@ echo "Nilai botia saat ini: " . $botia . " | ".$predictedCategory."\n";
 //echo$cyan1."BET pos : ".$kuning2.$pos."\n";
 //👾👾👾
 $balbackup = $bal;
-echo$yellow."SETING  : ".$cyan1."CHANCE ".$putih2.$CHANCE.$cyan1." BAGI ".$putih2.$bagi0.$cyan1." COIN ".$putih2.$coin.$cyan1." NONCE ".$putih2.$nonce." \n";
+echo$yellow."SETING  : ".$cyan1."CANC ".$putih2.$CHANCE.$cyan1." BG ".$putih2.$bagi0.$cyan1." CO ".$putih2.$coin.$cyan1." NCE ".$putih2.$nonce." | ".$cek."\n";
 echo$cyan1."BET     : ".$putih2.$bet." ".$kuning.$totrugi1.$cyan1." BETMAX : ".$putih1.$betmax."\n";
 if ($hsl == "win"){$hslrr = $hijau1.$hsl;}
 if ($hsl == "loss"){$hslrr = $merah.$hsl;}
@@ -1129,7 +1129,7 @@ $kalahmax = $kalah;}
 
 if ($ultixxx0 > $ultixxx0max){$ultixxx0max = $ultixxx0;}
 
-$cek = $cek + 1;
+$cek++;
 if ($nonce != $cek && $cek > 30) {
     echo $merah . "Akses ditolak 😡😡😡 CURANG CEK NONCE " . $cek . " | " . $nonce . " \n";
     system('mpv /storage/emulated/0/termux/dice/wolf/monster.mp3');
@@ -1273,7 +1273,7 @@ $SL = number_format($SL,8);
 
 
 //🇮🇩🇮🇩🇮🇩
-if ($boster > 7000){
+if ($boster > 2000){
 $ultimax = $ultimax + 1;
 $boster = 1;
 echo$cyan1." GANTI SED 🤣🤣🤣 \n";
@@ -1302,7 +1302,6 @@ if ($cekyx != 0) {
 timer();
 goto seddulang;
 }
-$nonce = $cekyx;
 
 $linhhk = "https://wolfbet.com/api/v1/user/seed/refresh";
  $client_seed = generateRandomString2($length = 16);
@@ -1315,6 +1314,7 @@ $linhhk = "https://wolfbet.com/api/v1/user/seed/refresh";
     );
     $gettx = Post($linhhk, $header, $data);
     echo $cyan1."SEDD  : ".$kuning2.$gettx."\n";
+    $cek = 0;
 }
 //🇮🇩🇮🇩🇮🇩
 
@@ -1340,7 +1340,7 @@ if ($bal < 0.000001) {echo$cyan1." KALAH BOS LEBIH KECIL DARI SL 🤣🤣🤣 \n
 system('mpv /storage/emulated/0/termux/dice/wolf/monster.mp3');
 die();}
 
-if ($nonce > 51000) {echo$cyan1." GANTI SED 🤣🤣🤣 \n";
+if ($nonce > 5100000) {echo$cyan1." GANTI SED 🤣🤣🤣 \n";
 system('mpv /storage/emulated/0/termux/dice/wolf/Coin.mp3');
 $boster = 3000;
 }
