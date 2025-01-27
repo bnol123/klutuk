@@ -14,6 +14,9 @@ jobs:
       with:
         php-version: '8.1' 
         
+   - name: Install dependencies
+      run: composer install || true
+        
     - name: Run PHP Script
       env:
         keydice: ${{ secrets.KEYDICE }}
