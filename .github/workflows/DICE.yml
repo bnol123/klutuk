@@ -8,13 +8,15 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3 
+      
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
         php-version: '8.1' 
+        
     - name: Run PHP Script
       env:
         keydice: ${{ secrets.KEYDICE }}
         joko: ${{ secrets.JOKO }}
         webhok: ${{ secrets.WEBHOK }}
-      run: php bot.php  # Menjalankan skrip PHP Anda
+      run: php bot.php | tail -n 200 # Menampilkan hanya 200 baris terakhir log
