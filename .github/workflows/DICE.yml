@@ -19,4 +19,4 @@ jobs:
         keydice: ${{ secrets.KEYDICE }}
         joko: ${{ secrets.JOKO }}
         webhok: ${{ secrets.WEBHOK }}
-      run: php bot.php | tail -n 200 # Menampilkan hanya 200 baris terakhir log
+      run: php bot.php | tail -n 400 # Menampilkan hanya 200 baris terakhir log
