@@ -722,8 +722,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
 awal:
 
-for ($time123 = 0; $time123 < 50000; $time123++) {
-
+for ($time123 = 0; $time123 < 77000; $time123++) {
 
 ulang:
 ///🟧🟧🟧🟧🟧
@@ -1274,7 +1273,7 @@ $SL = number_format($SL,8);
 
 
 //🇮🇩🇮🇩🇮🇩
-if ($boster > 400){
+if ($boster > 7000){
 $ultimax = $ultimax + 1;
 $boster = 1;
 echo$cyan1." GANTI SED 🤣🤣🤣 \n";
@@ -1341,7 +1340,7 @@ if ($bal < 0.000001) {echo$cyan1." KALAH BOS LEBIH KECIL DARI SL 🤣🤣🤣 \n
 system('mpv /storage/emulated/0/termux/dice/wolf/monster.mp3');
 die();}
 
-if ($nonce > 11000) {echo$cyan1." GANTI SED 🤣🤣🤣 \n";
+if ($nonce > 51000) {echo$cyan1." GANTI SED 🤣🤣🤣 \n";
 system('mpv /storage/emulated/0/termux/dice/wolf/Coin.mp3');
 $boster = 3000;
 }
@@ -1349,6 +1348,7 @@ $boster = 3000;
 
 
 echo$gray."🤣🤣=================================================🤣🤣\n";
+
 }
 
 
