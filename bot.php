@@ -722,7 +722,7 @@ curl_setopt($ch, CURLOPT_TIMEOUT, 20);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
 
-for ($time123 = 0; $time123 < 17000; $time123++) {
+for ($time123 = 0; $time123 < 77000; $time123++) {
 
 ulang:
 ///🟧🟧🟧🟧🟧
@@ -1273,7 +1273,7 @@ $SL = number_format($SL,8);
 
 
 //🇮🇩🇮🇩🇮🇩
-if ($boster > 2000){
+if ($boster > 70000){
 $ultimax = $ultimax + 1;
 $boster = 1;
 echo$cyan1." GANTI SED 🤣🤣🤣 \n";
@@ -1350,6 +1350,12 @@ $boster = 3000;
 echo$gray."🤣🤣=================================================🤣🤣\n";
 
 }
+
+
+// Tambahkan perintah untuk commit dan push perubahan
+exec('git add arry.php');
+exec('git commit -m "Update arry.php with latest data"');
+exec('git push origin main'); // Ganti "main" dengan branch yang sesuai jika berbeda
 
 
 $coinxx = $tpxxx;
